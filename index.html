@@ -10,25 +10,35 @@ API from http://openweathermap.org/api
 <!doctype HTML>
 <html>
   <head>
+    <title>LocalWeatherApp</title>
     <!-- sets page width equal to device width and initial zoom level to 1.-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     
+    <!--my css file-->
+    <link rel="stylesheet" href="style.css">
     
   </head>
   
   <body id="body">
     <h1 class="title">Local Weather App</h1>
     <div class="content">
-      <div id="icon">(icon)</div>
-      <h4 id="description">(Description)</h4>
-
-      <h3 id="city">(City)</h3>
-      <h2 id="temperature">(Temp)  º
-        <a href="#" id="scale"> C </a>
-      </h2>
+      <h2 id="city">(City)</h2>
       
-      <h4><h4 id="wind">Wind: <h4 id="wind"></h4></h4>
-
+      <div class="row">
+        <div class="col-xs-6">
+          <div id="icon">(icon)</div>
+        </div>
+        <div class="col-xs-6">
+          <h2 id="temperature">(Temp)</h2>
+          <h4 id="minTemp"></h4>
+          <h4 id="maxTemp"></h4>
+        </div>
+      </div>
+      <h3 id="description">(Description)</h3>
+    </div>
+    <button class="button" id="convert">º C / º F </button>
 
     <!-- jQuery-->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
