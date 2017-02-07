@@ -7,8 +7,13 @@ This project is a challenge posed by FreeCodeCamp.
 API from http://openweathermap.org/api
 */
 
+body{
+  background: radial-gradient(circle, skyblue, blue);
+}
+
 h1, h2, h3, h4{
   font-family: Arial;
+  margin: 5% 5% 5% 5%;
 }
 
 /* classes */
@@ -27,20 +32,15 @@ h1, h2, h3, h4{
   text-align: center;
 }
 
-
-/* backgrounds */
-.rainy-day{
-  background: radial-gradient(circle, skyblue, blue);
-}
-
-.rainy-night{
-  background: radial-gradient(circle, midnightblue, black);
-}
-
-.clear-day{
-  background: radial-gradient(circle, white, yellow);
-}
-
-.clear-night{
-  background: radial-gradient(circle, #1a82f7, black);
+#convert{
+  background-color: skyblue; 
+  border-radius: 5%;
+  font-family: arial;
+  width: 15vw;
+  max-width: 10em;
+  margin-left: 40%;
+  margin-right: 40%;
+  background: rgba(255, 255, 255, .75);
+  box-shadow: .5em .5em .5em rgba(0, 0, 0, .4);
+  text-align: center;
 }
