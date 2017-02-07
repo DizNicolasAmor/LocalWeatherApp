@@ -1,0 +1,46 @@
+/*
+LocalWeatherApp
+- - - - - - - - - -
+http://codepen.io/DizNicolasAmor/pen/XpqoQz
+Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
+This project is a challenge posed by FreeCodeCamp.
+API from http://openweathermap.org/api
+*/
+
+h1, h2, h3, h4{
+  font-family: Arial;
+}
+
+/* classes */
+.title{
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.content {
+  border-radius: 5%;
+  width: 75vw;
+  max-width: 50em;
+  margin: 10% auto;
+  background: rgba(255, 255, 255, .75);
+  box-shadow: .5em .5em .5em rgba(0, 0, 0, .4);
+  text-align: center;
+}
+
+
+/* backgrounds */
+.rainy-day{
+  background: radial-gradient(circle, skyblue, blue);
+}
+
+.rainy-night{
+  background: radial-gradient(circle, midnightblue, black);
+}
+
+.clear-day{
+  background: radial-gradient(circle, white, yellow);
+}
+
+.clear-night{
+  background: radial-gradient(circle, #1a82f7, black);
+}
