@@ -8,7 +8,11 @@ API from http://openweathermap.org/api
 */
 
 body{
-  background: radial-gradient(circle, skyblue, blue);
+  /* other background --> background: radial-gradient(circle, skyblue, blue); */
+  background: 100%, url("https://upload.wikimedia.org/wikipedia/commons/e/e7/Sky_with_puffy_clouds.JPG");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1, h2, h3, h4{
@@ -26,7 +30,7 @@ h1, h2, h3, h4{
   border-radius: 5%;
   width: 75vw;
   max-width: 50em;
-  margin: 10% auto;
+  margin: 5% auto;
   background: rgba(255, 255, 255, .75);
   box-shadow: .5em .5em .5em rgba(0, 0, 0, .4);
   text-align: center;
