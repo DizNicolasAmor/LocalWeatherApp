@@ -27,11 +27,11 @@ $(document).ready(function() {
   }
 
   
-  $.getJSON('http://ipinfo.io', function(data){
+  $.getJSON('https://ipinfo.io', function(data){
     //loc is an array with lat = loc[0] && lon = loc[1]
     loc = data.loc.split(",");
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+loc[0]+"&lon="+loc[1]+"&appid="+myAppid, function(weatherData){
+    $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat="+loc[0]+"&lon="+loc[1]+"&appid="+myAppid, function(weatherData){
 console.log(weatherData);     
       var iconVar = weatherData.weather[0].icon;
       
@@ -42,7 +42,7 @@ console.log(weatherData);
       var tempMaxCel = parseInt(weatherData.main.temp_max - 273);
 
       $("#city").html(weatherData.name+", "+weatherData.sys.country);
-      $("#icon").html("<img src='http://openweathermap.org/img/w/"+iconVar+".png' height='100'>");
+      $("#icon").html("<img src='https://openweathermap.org/img/w/"+iconVar+".png' height='100'>");
       $("#description").html(weatherData.weather[0].description);
       $("#temperature").html(tempCel + "ºC"); 
       $("#minTemp").html("Min.: " + tempMinCel + " ºC"); 
