@@ -31,7 +31,7 @@ $(document).ready(function() {
     //loc is an array with lat = loc[0] && lon = loc[1]
     loc = data.loc.split(",");
 
-    $.getJSON("https://api.openweathermap.org/data/2.5/weather?lat="+loc[0]+"&lon="+loc[1]+"&appid="+myAppid, function(weatherData){
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat="+loc[0]+"&lon="+loc[1]+"&appid="+myAppid, function(weatherData){
 console.log(weatherData);     
       var iconVar = weatherData.weather[0].icon;
       
