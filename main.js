@@ -1,16 +1,16 @@
 /*
 LocalWeatherApp
 - - - - - - - - - -
-http://codepen.io/DizNicolasAmor/pen/XpqoQz
+https://diznicolasamor.github.io/LocalWeatherApp/
 Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
 This project is a challenge posed by FreeCodeCamp.
 API from http://openweathermap.org/api
 */
 
-
 $(document).ready(function() {
   
-  var loc;
+  var lat;
+  var lon;
   //My API key:   f0c304536bcea0bc10f6fdb0a3dd88b2  
   var myAppid = "f0c304536bcea0bc10f6fdb0a3dd88b2";
 
@@ -26,23 +26,45 @@ $(document).ready(function() {
     return cel; 
   }
 
-  
-  $.getJSON('https://ipinfo.io', function(data){
-    //loc is an array with lat = loc[0] && lon = loc[1]
-    loc = data.loc.split(",");
+  function getLocation(callback){
+    console.log('Searching location info...');
+    
+    function success(position) {
+      var lat  = position.coords.latitude;
+      var lon = position.coords.longitude;
+      console.log('lat: '+lat+' ; '+'lon: '+lon);
+    }
+    
+    function error() {
+      $('#city').html("Unable to retrieve your location");
+    }
+    
+    if (!navigator.geolocation){
+      $('#city').html("Geolocation is not supported by your browser");
+    }
+    
+    navigator.geolocation.getCurrentPosition(success, error);
 
-    $.getJSON("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat="+loc[0]+"&lon="+loc[1]+"&appid="+myAppid, function(weatherData){
-console.log(weatherData);     
-      var iconVar = weatherData.weather[0].icon;
-      
-      //the API gives me the temp in kelvin. Remember that cel = kelvin - 273;
+    callback();
+
+  };//getLocation(); 
+
+  function getApiData(){
+      $.getJSON("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+myAppid, function(weatherData){
+        
+        var urlString = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+myAppid;
+        console.log(urlString);
+        console.log(weatherData);     
+        var iconVar = weatherData.weather[0].icon;
+    
+    //the API gives me the temp in kelvin. Remember that cel = kelvin - 273;
       var tempCel = parseInt(weatherData.main.temp - 273);
       var tempFahr = parseInt( (tempCel-32) * 5 / 9 );
       var tempMinCel = parseInt(weatherData.main.temp_min - 273);
       var tempMaxCel = parseInt(weatherData.main.temp_max - 273);
 
-      $("#city").html(weatherData.name+", "+weatherData.sys.country);
-      $("#icon").html("<img src='https://openweathermap.org/img/w/"+iconVar+".png' height='100'>");
+      $("#city").html(data.city+", "+data.country);
+      $("#icon").html("<img src='http://openweathermap.org/img/w/"+iconVar+".png' height='100'>");
       $("#description").html(weatherData.weather[0].description);
       $("#temperature").html(tempCel + "ºC"); 
       $("#minTemp").html("Min.: " + tempMinCel + " ºC"); 
@@ -62,7 +84,8 @@ console.log(weatherData);
       });
 
     })  // get JSON weatherData
-    
-  })  //get JSON ipinfo
+  };
   
-})  //document ready
+  getLocation(getApiData);
+
+});//document ready
