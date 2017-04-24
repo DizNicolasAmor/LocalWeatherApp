@@ -1,17 +1,17 @@
 /*
 LocalWeatherApp
 - - - - - - - - - -
-http://codepen.io/DizNicolasAmor/pen/XpqoQz
+https://diznicolasamor.github.io/LocalWeatherApp/
 Author:  Diz, Nicolás Amor (https://github.com/DizNicolasAmor)
 This project is a challenge posed by FreeCodeCamp.
 API from http://openweathermap.org/api
 */
 
 body{
-  /* other background --> background: radial-gradient(circle, skyblue, blue); */
-  background: 100%, url("https://upload.wikimedia.org/wikipedia/commons/e/e7/Sky_with_puffy_clouds.JPG");
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e7/Sky_with_puffy_clouds.JPG") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
